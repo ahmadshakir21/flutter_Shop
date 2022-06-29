@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/mock/mock_data.dart';
-import 'package:flutter_application/src/about_us.dart';
-import 'package:flutter_application/src/detail_screen.dart';
-import 'package:flutter_application/src/favorite.dart';
-import 'package:flutter_application/src/settings.dart';
-import 'package:flutter_application/src/shopping_cart.dart';
+// import 'package:flutter_application/src/about_us.dart';
+// import 'package:flutter_application/src/detail_screen.dart';
+// import 'package:flutter_application/src/favorite.dart';
+// import 'package:flutter_application/src/settings.dart';
+// import 'package:flutter_application/src/shopping_cart.dart';
+
+import 'detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -43,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
             InkWell(
               onTap: () {
-               Navigator.pushNamed(context, "/favorite");
+                Navigator.pushNamed(context, "/favorite");
               },
               child: const ListTile(
                 leading: Icon(Icons.favorite,
@@ -81,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             InkWell(
               onTap: () {
-               Navigator.pushNamed(context, "/aboutUs");
+                Navigator.pushNamed(context, "/aboutUs");
               },
               child: const ListTile(
                 leading:
@@ -108,8 +110,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => DetailScreen(
-                              appbarTitle:
-                                  myData[index]["itemName"].toString()),
+                            appbarTitle: myData[index]["itemName"].toString(),
+                            imageUrlDetail:
+                                myData[index]["imageUrl"].toString(),
+                            title: myData[index]["itemName"].toString(),
+                            description:
+                                myData[index]["description"].toString(),
+                            color: myData[index]["color"].toString(),
+                            made: myData[index]["made"].toString(),
+                            price: myData[index]["price"].toString(),
+                          ),
                         ));
                       },
                       child: Container(

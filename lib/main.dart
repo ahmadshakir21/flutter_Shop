@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/src/about_us.dart';
-import 'package:flutter_application/src/detail_screen.dart';
-import 'package:flutter_application/src/favorite.dart';
-import 'package:flutter_application/src/home_screen.dart';
-import 'package:flutter_application/src/settings.dart';
-import 'package:flutter_application/src/shopping_cart.dart';
+import 'package:flutter_application/src/screens/about_us.dart';
+import 'package:flutter_application/src/screens/favorite.dart';
+import 'package:flutter_application/src/screens/home_screen.dart';
+import 'package:flutter_application/src/screens/settings.dart';
+import 'package:flutter_application/src/screens/shopping_cart.dart';
 
 void main() {
   runApp(MyApp());
