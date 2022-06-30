@@ -6,7 +6,7 @@ class DetailScreen extends StatelessWidget {
   String imageUrlDetail;
   String title;
   String description;
-  String color;
+  List<String> color;
   String made;
   String price;
 

@@ -1,5 +1,5 @@
 class Student {
-  final String id;
+  final int id;
   final String itemName;
   final String description;
   final String imageUrl;
@@ -18,13 +18,13 @@ class Student {
 
    factory Student.fromMap(Map<String, dynamic> map) {
     return Student(
-      id: map["id"],
-      itemName: map["itemName"],
-      description: map["description"],
-      imageUrl: map["imageUrl"],
-      price: map["price"],
-      color: map["color"],
-      made: map["map"],
+      id: map["id"] ?? "",
+      itemName: map["itemName"] ?? "",
+      description: map["description"] ?? "",
+      imageUrl: map["imageUrl"] ?? "",
+      price: map["price"] ?? "",
+      color: map["color"] ?? "",
+      made: map["made"] ?? "",
     );
   }
 }

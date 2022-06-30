@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/mock/mock_data.dart';
+import 'package:flutter_application/src/models/student_model.dart';
 // import 'package:flutter_application/src/about_us.dart';
 // import 'package:flutter_application/src/detail_screen.dart';
 // import 'package:flutter_application/src/favorite.dart';
 // import 'package:flutter_application/src/settings.dart';
 // import 'package:flutter_application/src/shopping_cart.dart';
 
+import '../../mock/mock_data.dart';
 import 'detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -103,22 +105,29 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 15),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
-            itemBuilder: (context, index) => Stack(
+            itemBuilder: (context, index) { 
+              List<Student> students = myData.map((e) => Student.fromMap(e),).toList();
+              return Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => DetailScreen(
-                            appbarTitle: myData[index]["itemName"].toString(),
-                            imageUrlDetail:
-                                myData[index]["imageUrl"].toString(),
-                            title: myData[index]["itemName"].toString(),
-                            description:
-                                myData[index]["description"].toString(),
-                            color: myData[index]["color"].toString(),
-                            made: myData[index]["made"].toString(),
-                            price: myData[index]["price"].toString(),
+                            appbarTitle: students[index].itemName,
+                            // myData[index]["itemName"].toString(),
+                            imageUrlDetail:students[index].imageUrl,
+                                //myData[index]["imageUrl"].toString(),
+                            title: students[index].itemName,
+                           // myData[index]["itemName"].toString(),
+                            description:students[index].description,
+                                //myData[index]["description"].toString(),
+                            color: students[index].color,
+                            //myData[index]["color"].toString(),
+                            made: students[index].made,
+                            //myData[index]["made"].toString(),
+                            price: students[index].price.toString(),
+                            //myData[index]["price"].toString(),
                           ),
                         ));
                       },
@@ -140,10 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           IconButton(
                             onPressed: () {
                               setState(() {
-                                iconFavorite =
-                                    iconFavorite == Icons.favorite_border
-                                        ? Icons.favorite
-                                        : Icons.favorite_border;
+                                
                               });
                             },
                             icon: Icon(iconFavorite),
@@ -170,6 +176,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     )
                   ],
-                )));
+                );}));
   }
 }
